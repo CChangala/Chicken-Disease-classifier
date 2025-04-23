@@ -1,5 +1,7 @@
 import sys
 import os
+
+from src.cnn_classifier.pipeline.stage_03_training import ModelTrainingPipeline
 sys.path.append(os.path.abspath("src"))
 
 from src.cnn_classifier import logger
@@ -17,9 +19,21 @@ except Exception as e:
     raise e
 
 STAGE_NAME = "Prepare Base Model Stage"
-try:
+try: 
     logger.info(f">>>>>> stage {STAGE_NAME} started <<<<<<")
     obj = PrepareBaseModelTrainingPipeline()
+    obj.main()
+    logger.info(f">>>>>> stage {STAGE_NAME} completed <<<<<<\n\nx==========x")
+except Exception as e:
+    logger.exception(e)
+    raise e
+
+STAGE_NAME = "Training"
+
+try:
+    logger.info(f"*******************")
+    logger.info(f">>>>>> stage {STAGE_NAME} started <<<<<<")
+    obj = ModelTrainingPipeline()
     obj.main()
     logger.info(f">>>>>> stage {STAGE_NAME} completed <<<<<<\n\nx==========x")
 except Exception as e:

@@ -2,7 +2,7 @@ AUGMENTATION: True
 IMAGE_SIZE: [224, 224, 3] # as per VGG 16 model from the keras documentaion
 BATCH_SIZE: 16
 INCLUDE_TOP: False
-EPOCHS: 1
+EPOCHS: 10
 CLASSES: 2 #healthy or diseased
 WEIGHTS: imagenet #image weights
 LEARNING_RATE: 0.01 # learning rate for the optimizer
